@@ -1,0 +1,29 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+flake8 = "*"
+pytest = "*"
+black = "*"
+mypy = "*"
+pytest-cov = "*"
+
+[packages]
+click = "*"
+estimator = {editable = true,path = "."}
+mypy-extensions = "*"
+energy-estimator = {editable = true,path = "."}
+
+[requires]
+python_version = "3.7"
+
+[scripts]
+format = "black ."
+lint = "flake8 ."
+test = "pytest -vv --cov-report html --cov-report term-missing:skip-covered --cov=src"
+typecheck = "mypy ."
+
+[pipenv]
+allow_prereleases = true
