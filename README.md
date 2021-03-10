@@ -7,6 +7,8 @@ I'm making the following initial assumptions as part of the exercise:
 * We're always going to get one `TurnOff` command at the beginning and one at the end of the sequence.
 * Whenever we find duplicate entries (i.e. same timestamp) we will only leave the last one (sorted by insertion order)
 * For all other purposes, entries will be sorted by timestamp
+* I'm currently not enforcing that the dimmer value doesn't go over 1.0 (per one of the examples)
+* I'm currently not doing any rounding or trimming of decimals
 * EOF will be triggered by Ctrl + D or some other equivalent command.
 
 ## Command Validation
