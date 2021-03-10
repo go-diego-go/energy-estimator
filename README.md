@@ -9,7 +9,7 @@ I'm making the following initial assumptions as part of the exercise:
 * For all other purposes, entries will be sorted by timestamp
 * I'm currently not enforcing that the dimmer value doesn't go over 1.0 (per one of the examples)
 * I'm currently not doing any rounding or trimming of decimals
-* EOF will be triggered by Ctrl + D or some other equivalent command.
+* `EOF` will be triggered by Ctrl + D or some other equivalent command (and I'm handling that internally rather than requiring the `<<EOF` Unix syntax)
 
 ## Command Validation
 
@@ -20,14 +20,14 @@ I'm assuming the following structure:
 ```
 
 where  
-`timestamp` is any positive integer number  
-`command` is one of:  
+* `timestamp` is any positive integer number  
+* `command` is one of:  
   - `Delta <value>`
     - `value` in turn is composed of:
       - `Sign`: either `+` or `-`
       - `Number`: an unsigned (because the sign is already included) float number
   - `TurnOff`
-    - This takes no parameters and is implicitly equivalent to: `Delta 0` 
+    - This takes no parameters and is implicitly equivalent to: `Delta 0.0` 
 
 Having said all of this, any input that doesn't follow this structure will be rejected as invalid.
 
@@ -40,10 +40,10 @@ Consumption per period = <period_length> * <consumption_rate>
 Total = <period1_consumption> + <period2_consumption> +... + <periodn_consumption>
 ```
 where  
-`period_length` is a float expressed in hours, calculated as:
+* `period_length` is a float expressed in hours, calculated as:
   - `period_end_timestamp` - `period_start_timestamp`  
   
-`consumption_rate` is a float expressed in watts (and depends on the wattage of the light bulb being used)
+* `consumption_rate` is a float expressed in watts (and depends on the wattage of the light bulb being used)
 
 ## Example usage
 
@@ -85,7 +85,7 @@ EDIT: I didn't get a chance to test this, but I think what I'm missing is:
 ```
 pip install pyinstaller --dev
 ```
-And then to actually create the executable (and this would eventually go inside the Makefile):
+And then to actually create the executable (and this would eventually get included within the Makefile):
 ```
 pyinstaller cli.py
 ```
