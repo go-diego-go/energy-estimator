@@ -43,7 +43,7 @@ where
 `period_length` is a float expressed in hours, calculated as:
   - `period_end_timestamp` - `period_start_timestamp`  
   
-`consumption_rate` is a float expressed in watts
+`consumption_rate` is a float expressed in watts (and depends on the wattage of the light bulb being used)
 
 ## Example usage
 
