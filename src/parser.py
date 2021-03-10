@@ -1,6 +1,11 @@
 import re
 from src.command import Command
 
+"""
+I'm using a regular expression here for 2 main reasons:
+1) I find them fun and interesting
+2) I get both parsing and validation out of the box
+"""
 TIMESTAMP = r"[1-9]\d*"
 FRACTIONAL_VALUE = r"(0\.\d+)"
 ONE = r"(1(\.0+)?)"
@@ -16,11 +21,6 @@ INPUT_PARSER = re.compile(
 )
 
 
-"""
-    I'm using a regular expression here for 2 main reasons:
-    1) I find them fun and interesting
-    2) I get both parsing and validation out of the box
-"""
 class Parser:
     @staticmethod
     def parse_command(input: str) -> Command:
