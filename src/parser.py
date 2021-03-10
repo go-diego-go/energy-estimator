@@ -2,9 +2,11 @@ import re
 from src.command import Command
 
 """
-I'm using a regular expression here for 2 main reasons:
+I'm using a regular expression here for 3 main reasons:
 1) I find them fun and interesting
 2) I get both parsing and validation out of the box
+3) The strings themselves are pretty short (or so they are so far),
+   so the performance should still be ok
 """
 TIMESTAMP = r"[1-9]\d*"
 FRACTIONAL_VALUE = r"(0\.\d+)"
