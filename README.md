@@ -78,7 +78,18 @@ Estimated energy used: 5.625 Wh
 * `energy-estimator`
 
 This is not a true, standalone executable (it needs to run within the context of the python env), but is simple enough for now.  
-We could also use `py-installer` to package an actual independent executable file. (We'll see if we have time for that)
+
+We could also use `pyinstaller` to package an actual independent, executable file. (We'll see if we have time for that)
+
+EDIT: I didn't get a chance to test this, but I think what I'm missing is:
+```
+pip install pyinstaller --dev
+```
+And then to actually create the executable (and this would eventually go inside the Makefile):
+```
+pyinstaller cli.py
+```
+But again, I didn't test this (didn't want to risk breaking stuff and spending lots of time on it)
 
 ## Development
 

@@ -18,3 +18,6 @@ def estimator() -> None:
                 click.style(f"Estimated energy used: {solver.run()} Wh", fg="blue")
             )
             break
+
+if __name__ == '__main__':
+    estimator()
